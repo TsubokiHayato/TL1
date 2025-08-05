@@ -107,6 +107,9 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
                         object["collider_size"][1],
                         object["collider_size"][2])
             self.write_and_print(file, temp_str)
+
+        if "Disabled" in object:
+            self.write_and_print(file,indent + "Disabled %s" % object["Disabled"])
         self.write_and_print(file,indent + "END")
         self.write_and_print(file,'')
 
@@ -152,6 +155,10 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
             collider["size"] = object["collider_size"].to_list()
 
             json_object_child["collider"] = collider
+
+        if "Disabled" in object:
+            #カスタムプロパティ"disabled"があれば追加
+            json_object_child["Disabled"] = object["Disabled"]
 
         data_parent.append(json_object_child)
 

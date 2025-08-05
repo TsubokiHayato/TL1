@@ -37,7 +37,8 @@ from .panels.file_name_panel import OBJECT_PT_file_name
 from .menus.topbar_menu import TOPBAR_MT_my_menu
 # 描画コライダー
 from .utils.draw_collider import DrawCollider
-
+# 無効オプション
+from .disabled import MYADDON_OT_disabled, MYADDON_PT_disabled_panel    
 
 # =====================================================
 # 登録・解除処理
@@ -62,7 +63,10 @@ classes = (
     OBJECT_PT_collider,
     # コライダーパネル
     MYADDON_OT_add_collider,
-    
+    #無効化オプション
+    MYADDON_OT_disabled,
+    MYADDON_PT_disabled_panel,
+
 )
 
 # =====================================================
